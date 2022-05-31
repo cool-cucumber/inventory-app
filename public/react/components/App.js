@@ -14,6 +14,7 @@ export const App = () => {
 		try {
 			const response = await fetch(`${apiURL}/sauces`);
 			const saucesData = await response.json();
+			console.log("here is my data",saucesData)
 			
 			setSauces(saucesData);
 		} catch (err) {
@@ -31,7 +32,7 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1>Sauce Store</h1>
+      <h1 class="text">Sauce Store</h1>
 			<h2>All things 🔥</h2>
 			{currentSauce > 0 ? <SauceDetails sauce={sauces[currentSauce - 1]} goHome={() => clickSauce(0)}/> : <SaucesList sauces={sauces} clickSauce={clickSauce}/>}
 			

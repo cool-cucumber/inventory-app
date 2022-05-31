@@ -1,5 +1,22 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  /* background-color: rgb(223, 223, 223); */
+  background-color: rgb(223, 223, 223);
+  
+}
+
+.text {
+  text-align: center;
+  font-size: xx-large;
+}
+
+#product {
+  display: inline-block;
+  width: 50%;
+}
+
+#single-sauce-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
