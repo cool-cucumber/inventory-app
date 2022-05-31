@@ -3,10 +3,12 @@ import { SaucesList } from './SaucesList';
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
+import { SauceDetails } from './SauceDetails';
 
 export const App = () => {
 
 	const [sauces, setSauces] = useState([]);
+	const [currentSauce, setCurrentSauce] = useState(0)
 
 	async function fetchSauces(){
 		try {
@@ -19,6 +21,10 @@ export const App = () => {
 		}
 	}
 
+	const clickSauce = (id) => {
+		setCurrentSauce(id)
+	}
+
 	useEffect(() => {
 		fetchSauces();
 	}, []);
@@ -27,7 +33,8 @@ export const App = () => {
 		<main>	
       <h1>Sauce Store</h1>
 			<h2>All things 🔥</h2>
-			<SaucesList sauces={sauces} />
+			{currentSauce > 0 ? <SauceDetails sauce={sauces[currentSauce - 1]} goHome={() => clickSauce(0)}/> : <SaucesList sauces={sauces} clickSauce={clickSauce}/>}
+			
 		</main>
 	)
 }
