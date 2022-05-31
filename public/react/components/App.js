@@ -12,6 +12,7 @@ export const App = () => {
 		try {
 			const response = await fetch(`${apiURL}/sauces`);
 			const saucesData = await response.json();
+			console.log("here is my data",saucesData)
 			
 			setSauces(saucesData);
 		} catch (err) {
@@ -25,8 +26,8 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1>Sauce Store</h1>
-			<h2>All things 🔥</h2>
+      <h1 class="text">Sauce Inventory</h1>
+			
 			<SaucesList sauces={sauces} />
 		</main>
 	)

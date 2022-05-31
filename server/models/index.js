@@ -3,7 +3,10 @@ const {sequelize} = require('../db')
 
 const Sauce = sequelize.define("sauces", {
   name: Sequelize.STRING,
-  image: Sequelize.STRING,
+  description : Sequelize.STRING,
+  category : Sequelize.STRING,
+  price : Sequelize.NUMBER,
+  image: Sequelize.STRING
 });
 
 module.exports = {
