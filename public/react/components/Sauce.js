@@ -2,9 +2,9 @@ import React from 'react';
 
 export const Sauce = (props) => {
 
-  return <>
-    <h3>{props.sauce.name}</h3>
-    <img src={props.sauce.image} alt={props.sauce.name} />
-  </>
+  return <div id="product">
+    <img id="single-sauce-img" src={props.sauce.image} alt={props.sauce.name} />
+    <h3 class="text">{props.sauce.name}</h3>
+  </div>
 } 
 	
