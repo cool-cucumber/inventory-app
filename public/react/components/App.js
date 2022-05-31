@@ -32,8 +32,7 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1 class="text">Sauce Store</h1>
-			<h2>All things 🔥</h2>
+      <h1 className="text">Sauce Store</h1>
 			{currentSauce > 0 ? <SauceDetails sauce={sauces[currentSauce - 1]} goHome={() => clickSauce(0)}/> : <SaucesList sauces={sauces} clickSauce={clickSauce}/>}
 			
 		</main>
