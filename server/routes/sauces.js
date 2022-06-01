@@ -13,7 +13,15 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
-
+// POST /sauce
+router.post("/", async (req, res, next) => {
+  try {
+    const newSauce = await Sauce.create(req.body)
+    res.send(newSauce)
+  } catch (error) {
+    next(error);
+  }
+})
 
 //DELETE/ sauce
 router.delete("/:id", async (req,res) => {
@@ -21,7 +29,7 @@ router.delete("/:id", async (req,res) => {
     
     const idx = req.params.id;
     const deletedRow = await Sauce.destroy({ where: { id: idx } });
-    res.send('Sauce delted');
+    res.send('Sauce deleted');
     
   } catch (error) {
     next(error);
