@@ -40,6 +40,11 @@
   cursor: pointer
 }
 
+#delete-btn {
+  display: block;
+  margin-left: 90%;
+}
+
 .desc {
   display: flex;
   flex-direction: column;
