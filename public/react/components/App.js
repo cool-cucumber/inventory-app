@@ -8,11 +8,32 @@ import apiURL from '../api';
 import { SauceDetails } from './SauceDetails';
 import { AddSauceForm } from './AddSauceForm';
 
+import { AiOutlineDelete } from 'react-icons/ai';
 export const App = () => {
+
+	
+
 
 	const [sauces, setSauces] = useState([]);
 	const [currentSauce, setCurrentSauce] = useState(0);
 	const [addingSauce, setAddingSauce] = useState(false)
+
+	let deleteSauce = async (idx) => {
+		console.log('iddd',idx)
+		// console.log('route',`${apiURL}/sauces/${idx}`);
+		await fetch(`${apiURL}/sauces/${idx}`, {
+			method: "DELETE",
+			headers: {
+				'Content-type': 'application/json'
+			}
+			
+		})
+		
+		setCurrentSauce(0);
+		fetchSauces();
+
+
+	}
 
 	async function fetchSauces(){
 		try {
@@ -27,6 +48,7 @@ export const App = () => {
 	}
 
 	const clickSauce = (id) => {
+		
 		setCurrentSauce(id)
 	}
 
@@ -52,7 +74,16 @@ export const App = () => {
 		fetchSauces();
 	}, []);
 
-	const saucePages = currentSauce > 0 ? <SauceDetails sauce={sauces[currentSauce - 1]} goHome={() => clickSauce(0)}/> : <SaucesList sauces={sauces} clickSauce={clickSauce}/>
+	const saucePages = currentSauce > 0 ? <>
+	<SauceDetails sauce={sauces[currentSauce - 1]} goHome={() => clickSauce(0)}/> 
+	<AiOutlineDelete className = "back-btn" id="delete-btn" onClick={() => 
+				{
+					deleteSauce(sauces.find(sauce=>sauce.id===currentSauce).id)
+				}
+		
+			}/>
+	</>
+	: <SaucesList sauces={sauces} clickSauce={clickSauce}/>
 
 	return (
 		<main>	
@@ -63,6 +94,7 @@ export const App = () => {
 			</header>
 			
 			{addingSauce ? <AddSauceForm postSauce={postSauce}/> : saucePages}
+
 			
 		</main>
 	)
