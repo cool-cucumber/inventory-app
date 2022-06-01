@@ -31,7 +31,6 @@ export const App = () => {
 	}
 
 	const postSauce = async (newSauce) => {
-
 		try {
 			await fetch(`${apiURL}/sauces`, {
 				method: "POST", 
@@ -59,8 +58,8 @@ export const App = () => {
 		<main>	
 			<header>
       	<h1 className="text">Sauce Store</h1>
-				{addingSauce ?     <MdOutlineArrowBackIos className="back-btn" onClick={() => setAddingSauce(false)}/>
-: <BsPatchPlus onClick={() => setAddingSauce(true)} className="back-btn"/>}
+				{addingSauce === true &&  <MdOutlineArrowBackIos className="back-btn" onClick={() => setAddingSauce(false)}/>}
+				{(!addingSauce && currentSauce < 1) && <BsPatchPlus onClick={() => setAddingSauce(true)} className="back-btn"/>}
 			</header>
 			
 			{addingSauce ? <AddSauceForm postSauce={postSauce}/> : saucePages}
