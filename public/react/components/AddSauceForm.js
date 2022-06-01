@@ -1,25 +1,16 @@
 import React, {useState} from 'react';
 
 export const AddSauceForm = ({postSauce}) => {
-// Button to submit the new hot sauce
   const [formValues, setFormValues] = useState({})
-  // Keep track of the user inputs, and probably store the values
-  // We're getting in, in the state of the form
   const updateFormValues = (e) => {
     const newFormValues = formValues;
     newFormValues[e.target.name] = e.target.value;
     setFormValues(newFormValues)
     console.log(formValues)
-    // This ^^ is just adding the old values of state, 
-    // and only updating the target of this event
   }
-// First step will be to e.preventDefault()
   const submitHotSauce = (e) => {
     e.preventDefault()
     postSauce(formValues)
-    {}
-    // next, we want to pass up this new sauce data for our post request
-    // And we'll do that through props
   }
 
   return <form>

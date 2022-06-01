@@ -19,8 +19,6 @@ export const App = () => {
 	const [addingSauce, setAddingSauce] = useState(false)
 
 	let deleteSauce = async (idx) => {
-		console.log('iddd',idx)
-		// console.log('route',`${apiURL}/sauces/${idx}`);
 		await fetch(`${apiURL}/sauces/${idx}`, {
 			method: "DELETE",
 			headers: {
@@ -48,7 +46,6 @@ export const App = () => {
 	}
 
 	const clickSauce = (id) => {
-		
 		setCurrentSauce(id)
 	}
 
@@ -74,17 +71,13 @@ export const App = () => {
 		fetchSauces();
 	}, []);
 
-	const saucePages = currentSauce > 0 ? <>
-	<SauceDetails sauce={sauces[currentSauce - 1]} goHome={() => clickSauce(0)}/> 
-	<AiOutlineDelete className = "back-btn" id="delete-btn" onClick={() => 
-				{
-					deleteSauce(sauces.find(sauce=>sauce.id===currentSauce).id)
-				}
-		
-			}/>
-	</>
-	: <SaucesList sauces={sauces} clickSauce={clickSauce}/>
-
+	const saucePages = () => {
+		const sauce = sauces.find(sauce=>sauce.id===currentSauce)
+		return currentSauce > 0 ? <>
+	<SauceDetails sauce={sauce} goHome={() => clickSauce(0)}/> 
+	<AiOutlineDelete className = "back-btn" id="delete-btn" onClick={() =>	deleteSauce(sauce.id)}/>
+	</> : <SaucesList sauces={sauces} clickSauce={clickSauce}/>
+	}
 	return (
 		<main>	
 			<header>
@@ -93,7 +86,7 @@ export const App = () => {
 				{(!addingSauce && currentSauce < 1) && <BsPatchPlus onClick={() => setAddingSauce(true)} className="back-btn"/>}
 			</header>
 			
-			{addingSauce ? <AddSauceForm postSauce={postSauce}/> : saucePages}
+			{addingSauce ? <AddSauceForm postSauce={postSauce}/> : saucePages()}
 
 			
 		</main>
