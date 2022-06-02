@@ -71,12 +71,12 @@ export const App = () => {
 		fetchSauces();
 	}, []);
 
+	const sauceDetail = (sauce) => <SauceDetails sauce={sauce} goHome={() => clickSauce(0)} deleteSauce={deleteSauce}/> 
+	
+
 	const saucePages = () => {
 		const sauce = sauces.find(sauce=>sauce.id===currentSauce)
-		return currentSauce > 0 ? <>
-	<SauceDetails sauce={sauce} goHome={() => clickSauce(0)}/> 
-	<AiOutlineDelete className = "back-btn" id="delete-btn" onClick={() =>	deleteSauce(sauce.id)}/>
-	</> : <SaucesList sauces={sauces} clickSauce={clickSauce}/>
+		return currentSauce > 0 ?  sauceDetail(sauce) : <SaucesList sauces={sauces} clickSauce={clickSauce}/>
 	}
 	return (
 		<main>	
