@@ -40,6 +40,10 @@
   cursor: pointer
 }
 
+.edit {
+  align-self: flex-end;
+}
+
 #delete-btn {
   display: block;
   margin-left: 90%;
