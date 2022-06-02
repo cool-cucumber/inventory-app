@@ -23,6 +23,18 @@ router.post("/", async (req, res, next) => {
   }
 })
 
+// PUT /sauce
+router.put("/", async (req, res, next) => {
+  try {
+    const updatedSauce = await Sauce.update(req.body, {where: {id: req.body.id}})
+    console.log(updatedSauce)
+    res.send(updatedSauce)
+  } catch (error) {
+    consoe.log(error)
+    next(error)
+  }
+})
+
 //DELETE/ sauce
 router.delete("/:id", async (req,res) => {
   try {
