@@ -13,7 +13,7 @@ export const AddSauceForm = ({postSauce}) => {
     postSauce(formValues)
   }
 
-  return <form>
+  return <form className="form">
     <input name="name" onChange={updateFormValues} placeholder='Hot Sauce Name'></input>
     <input name="description" onChange={updateFormValues} placeholder='Hot Sauce Description'></input>
     <input name="image" onChange={updateFormValues} placeholder='Hot Sauce Gif'></input>
