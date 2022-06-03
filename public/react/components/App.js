@@ -11,9 +11,6 @@ import { AddSauceForm } from './AddSauceForm';
 import { AiOutlineDelete } from 'react-icons/ai';
 export const App = () => {
 
-	
-
-
 	const [sauces, setSauces] = useState([]);
 	const [currentSauce, setCurrentSauce] = useState(0);
 	const [addingSauce, setAddingSauce] = useState(false)
