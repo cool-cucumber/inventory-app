@@ -16,7 +16,7 @@ export const EditSauceForm = ({updateSauce, sauce}) => {
     updateSauce(formValues)
   }
 
-  return <form>
+  return <form className="form details">
     <input name="name" onChange={updateFormValues} placeholder='Hot Sauce Name'></input>
     <input name="description" onChange={updateFormValues} placeholder='Hot Sauce Description'></input>
     <input name="image" onChange={updateFormValues} placeholder='Hot Sauce Gif'></input>

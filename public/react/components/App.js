@@ -11,9 +11,6 @@ import { AddSauceForm } from './AddSauceForm';
 import { AiOutlineDelete } from 'react-icons/ai';
 export const App = () => {
 
-	
-
-
 	const [sauces, setSauces] = useState([]);
 	const [currentSauce, setCurrentSauce] = useState(0);
 	const [addingSauce, setAddingSauce] = useState(false)
@@ -83,7 +80,7 @@ export const App = () => {
 			<header>
       	<h1 className="text">Sauce Store</h1>
 				{addingSauce === true &&  <MdOutlineArrowBackIos className="back-btn" onClick={() => setAddingSauce(false)}/>}
-				{(!addingSauce && currentSauce < 1) && <BsPatchPlus onClick={() => setAddingSauce(true)} className="back-btn"/>}
+				{(!addingSauce && currentSauce < 1) && <BsPatchPlus onClick={() => setAddingSauce(true)} className="back-btn plus"/>}
 			</header>
 			
 			{addingSauce ? <AddSauceForm postSauce={postSauce}/> : saucePages()}

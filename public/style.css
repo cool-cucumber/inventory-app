@@ -1,18 +1,51 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  /* background-color: rgb(223, 223, 223); */
-  
+  color: #472d30;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+}
+
+main, body {
+  height: 100%;
+  background-color:#c9cba3;
 }
 
 .text {
   text-align: center;
-  font-size: xx-large;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size:50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form input, .form select, .form button {
+  width: 50%;
+  padding: 15px;
+  margin: 5px;
+}
+
+.details input, .details select, .details button {
+  width: 110%;
+}
+
+button {
+  cursor: pointer
 }
 
 #product {
   display: inline-block;
   width: 50%;
+  /* height: px; */
+  margin-bottom: 35px;
+  justify-self: center;
 }
 
 #single-sauce-img {
@@ -21,6 +54,9 @@
   height: auto;
 }
 
+.plus {
+  margin-left: 25px;
+}
 
 .sauce-details {
   display: flex;
@@ -41,6 +77,7 @@
 }
 
 .edit {
+  margin-bottom: 25px;
   align-self: flex-end;
 }
 
@@ -58,3 +95,18 @@
 .desc p {
   margin: 10px 0;
 }
+
+.sauce-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* For responsiveness, 
+might be worth increasing 
+Text size in mobile view 
+(@media screen and (max-width: 500px)
+Also might be worth changing the sauce list 
+on mobile view to display flex and show a single column
+Ben also wondering about maybe adding border/ margin to the sauce images
+to make newly added ones, similar sized
+*/
