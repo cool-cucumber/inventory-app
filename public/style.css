@@ -19,11 +19,6 @@ main, body {
 /* #product{
   min-width: 250px;
 } */
-@media (max-width: 500px){
-#single-sauce-img, #text{
-    flex-direction: column;
-  }
-}
 
 h1 {
   font-weight: bolder;
@@ -112,6 +107,14 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+@media screen and (max-width: 500px){
+.sauce-list{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 /* For responsiveness, 
 might be worth increasing 
